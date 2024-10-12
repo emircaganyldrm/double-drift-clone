@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3627412407105802534}
   - component: {fileID: 8202620709738974849}
+  - component: {fileID: 6353654699831658135}
   m_Layer: 0
   m_Name: PlayerCar
   m_TagString: Untagged
@@ -50,18 +51,18 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.1
-      inSlope: 0.9
-      outSlope: 0.9
+      value: 1
+      inSlope: -0.75
+      outSlope: -0.75
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 1
-      inSlope: 0.9
-      outSlope: 0.9
+      value: 0.25
+      inSlope: -0.75
+      outSlope: -0.75
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -93,19 +94,58 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  breakCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.25
+      outSlope: -0.25
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.75
+      inSlope: -0.25
+      outSlope: -0.25
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  topSpeed: 30
   torqueMultiplier: 50
-  topSpeed: 50
+  maxTorque: 100
+  breakForce: 10
   horizontalSpeed: 10
   bounds: {x: -4, y: 4}
+  driftThreshold: 20
   rotationSpeed: 5
   rotationMaxAngle: 100
-  verticalRotation: 0.02
+  verticalRotation: 0.04
   horizontalRotation: 0.2
   wheelMaxAngle: 30
   wheelTurnSpeed: 900
   carFrame: {fileID: 7616782915243880351}
   frontWheels: {fileID: 958008358565110508}
   rearWheels: {fileID: 4136797814707042067}
+--- !u!114 &6353654699831658135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4874932485903817378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8988718306c45e8adc9945e835f0c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3083195976116878687
 PrefabInstance:
   m_ObjectHideFlags: 0

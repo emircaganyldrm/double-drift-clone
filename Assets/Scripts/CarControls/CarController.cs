@@ -6,25 +6,27 @@ namespace Car
 {
     public class CarController : MonoBehaviour
     {
-        [Header("Speed Settings")]
+        [Header("Speed Settings")] 
         [SerializeField] private AnimationCurve accelerationCurve;
         [SerializeField] private AnimationCurve torqueCurve;
+        [SerializeField] private AnimationCurve breakCurve;
+        [SerializeField] private float topSpeed = 30;
         [SerializeField] private float torqueMultiplier = 50;
-        [SerializeField] private float topSpeed = 50;
+        [SerializeField] private float maxTorque = 100;
+        [SerializeField] private float breakForce = 2;
         [SerializeField] private float horizontalSpeed = 10;
         [SerializeField] private Vector2 bounds = new(-3, 3);
 
-        [Space]
-        [Header("Rotation Settings")]
+        [Space] [Header("Drift Settings")]
+        [SerializeField] private float driftThreshold = 20;
         [SerializeField] private float rotationSpeed = 5f;
         [SerializeField] private float rotationMaxAngle = 100f;
-        [SerializeField] private float verticalRotation = .02f;
+        [SerializeField] private float verticalRotation = .04f;
         [SerializeField] private float horizontalRotation = .2f;
         [SerializeField] private float wheelMaxAngle = 30;
         [SerializeField] private float wheelTurnSpeed = 900;
-        
-        [Space]
-        [Header("Parts")]
+
+        [Space] [Header("Parts")] 
         [SerializeField] private Transform carFrame;
         [SerializeField] private Transform frontWheels;
         [SerializeField] private Transform rearWheels;
@@ -41,6 +43,8 @@ namespace Car
         {
             HandleSpeed();
             CalculateTorque();
+            
+            IsDrifting = Mathf.Abs(_currentRotation) > driftThreshold;
         }
 
         private void FixedUpdate()
@@ -54,6 +58,10 @@ namespace Car
         {
             float input = InputManager.Instance.IsTapping ? 1 : 0;
             _currentSpeed += accelerationCurve.Evaluate(SpeedProgress) * input * Time.deltaTime * _currentTorque;
+            _currentSpeed = Mathf.Clamp(_currentSpeed, 0, topSpeed);
+
+            if (input != 0) return;
+            _currentSpeed -= breakCurve.Evaluate(SpeedProgress) * breakForce * Time.deltaTime;
             _currentSpeed = Mathf.Clamp(_currentSpeed, 0, topSpeed);
         }
 
@@ -81,7 +89,7 @@ namespace Car
             float input = InputManager.Instance.IsTapping ? 1 : -1;
             _currentTorque += torqueCurve.Evaluate(_currentSpeed / topSpeed) * input * Time.deltaTime *
                               torqueMultiplier;
-            _currentTorque = Mathf.Clamp(_currentTorque, 0, 100);
+            _currentTorque = Mathf.Clamp(_currentTorque, 0, maxTorque);
         }
 
         private void HandleRotation()
@@ -104,10 +112,8 @@ namespace Car
             transform.rotation = targetRotation;
 
             carFrame.localRotation = Quaternion.Lerp(carFrame.localRotation,
-                Quaternion.Euler(-_currentTorque * verticalRotation, 0, _currentRotation * horizontalRotation), Time.deltaTime * 10);
-
-
-            IsDrifting = Mathf.Abs(transform.localEulerAngles.y) > 20;
+                Quaternion.Euler(-_currentTorque * verticalRotation, 0, _currentRotation * horizontalRotation),
+                Time.deltaTime * 10);
         }
 
         private void HandleWheels()
