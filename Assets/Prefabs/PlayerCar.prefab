@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6353654699831658135}
   - component: {fileID: 7061587171784989657}
   - component: {fileID: 1874158004813220974}
+  - component: {fileID: 7252859706524837936}
+  - component: {fileID: 7668773581143342061}
   m_Layer: 0
   m_Name: PlayerCar
   m_TagString: Untagged
@@ -96,26 +98,26 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  breakCurve:
+  brakeCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
-      inSlope: -0.25
-      outSlope: -0.25
-      tangentMode: 34
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0.75
-      inSlope: -0.25
-      outSlope: -0.25
-      tangentMode: 34
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -123,13 +125,13 @@ MonoBehaviour:
   topSpeed: 30
   torqueMultiplier: 50
   maxTorque: 100
-  breakForce: 10
+  breakForce: 0.2
   horizontalSpeed: 10
   bounds: {x: -4, y: 4}
   driftThreshold: 20
   rotationSpeed: 5
   rotationMaxAngle: 100
-  verticalRotation: 0.04
+  verticalRotation: 0.02
   horizontalRotation: 0.2
   wheelMaxAngle: 30
   wheelTurnSpeed: 900
@@ -187,6 +189,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7252859706524837936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4874932485903817378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 485fb6cd762f494293fbf81998bd67f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbodyPrefab: {fileID: 7586487980018975711, guid: 7ee86e38087414c4ab297d33ee07dc34, type: 3}
+--- !u!114 &7668773581143342061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4874932485903817378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780c7edd99be468ca7e42c37ed3149fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightsRenderer: {fileID: 8961113424219700190}
+  defaultColor: {r: 0.28235295, g: 0.28235295, b: 0.28235295, a: 1}
+  brakeColor: {r: 0.7529412, g: 0, b: 0, a: 1}
 --- !u!1001 &3083195976116878687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -282,14 +312,19 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.7019422, y: 1.1613668, z: 4.606532}
-  m_Center: {x: 0.012102276, y: 0.7906932, z: 0.0121014565}
+  m_Size: {x: 1.5046153, y: 1.1613668, z: 4.606532}
+  m_Center: {x: 0.012102388, y: 0.7906932, z: 0.012101382}
 --- !u!4 &7616782915243880351 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4863194712418030272, guid: 67afac91460758648a192e444ca155af, type: 3}
+  m_PrefabInstance: {fileID: 3083195976116878687}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8961113424219700190 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6239160357068555905, guid: 67afac91460758648a192e444ca155af, type: 3}
   m_PrefabInstance: {fileID: 3083195976116878687}
   m_PrefabAsset: {fileID: 0}

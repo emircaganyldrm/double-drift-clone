@@ -120,12 +120,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2873236705705130524, guid: 67afac91460758648a192e444ca155af, type: 3}
+      propertyPath: driftTrail
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2873236705705130524, guid: 67afac91460758648a192e444ca155af, type: 3}
+      propertyPath: driftParticle
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916061593673679956, guid: 67afac91460758648a192e444ca155af, type: 3}
+      propertyPath: driftTrail
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916061593673679956, guid: 67afac91460758648a192e444ca155af, type: 3}
+      propertyPath: driftParticle
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6302991580782884940, guid: 67afac91460758648a192e444ca155af, type: 3}
       propertyPath: m_Name
       value: Player Car
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 2873236705705130524, guid: 67afac91460758648a192e444ca155af, type: 3}
+    - {fileID: 2916061593673679956, guid: 67afac91460758648a192e444ca155af, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 6656851665322626125, guid: 67afac91460758648a192e444ca155af, type: 3}
+    - {fileID: 5089245988031147686, guid: 67afac91460758648a192e444ca155af, type: 3}
+    - {fileID: 6797173018742423162, guid: 67afac91460758648a192e444ca155af, type: 3}
+    - {fileID: 3740342451211112885, guid: 67afac91460758648a192e444ca155af, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 392390090439105255, guid: 67afac91460758648a192e444ca155af, type: 3}
@@ -133,25 +155,25 @@ PrefabInstance:
       addedObject: {fileID: 8825177920636400565}
     - targetCorrespondingSourceObject: {fileID: 392390090439105255, guid: 67afac91460758648a192e444ca155af, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1798907537607693365}
+      addedObject: {fileID: 5597027053589609090}
     - targetCorrespondingSourceObject: {fileID: 1495165612047276931, guid: 67afac91460758648a192e444ca155af, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2243206513439320527}
     - targetCorrespondingSourceObject: {fileID: 1495165612047276931, guid: 67afac91460758648a192e444ca155af, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8979231503138270596}
+      addedObject: {fileID: 1205840015778452269}
     - targetCorrespondingSourceObject: {fileID: 8544128340574193755, guid: 67afac91460758648a192e444ca155af, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8001018023447457615}
     - targetCorrespondingSourceObject: {fileID: 8544128340574193755, guid: 67afac91460758648a192e444ca155af, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4925997027668417584}
+      addedObject: {fileID: 3205040014146242638}
     - targetCorrespondingSourceObject: {fileID: 7399143019983488766, guid: 67afac91460758648a192e444ca155af, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6729359594016185431}
     - targetCorrespondingSourceObject: {fileID: 7399143019983488766, guid: 67afac91460758648a192e444ca155af, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1103587382201468675}
+      addedObject: {fileID: 2188160424045016274}
     - targetCorrespondingSourceObject: {fileID: 8753790411900402214, guid: 67afac91460758648a192e444ca155af, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7303352925280375902}
@@ -197,7 +219,7 @@ Rigidbody:
   m_GameObject: {fileID: 10476913638343660}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -215,7 +237,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &1103587382201468675
+--- !u!135 &2188160424045016274
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -234,7 +256,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1159930451551915337 stripped
 GameObject:
@@ -250,7 +272,7 @@ Rigidbody:
   m_GameObject: {fileID: 1159930451551915337}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -268,7 +290,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &4925997027668417584
+--- !u!135 &3205040014146242638
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -287,7 +309,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2301770338086158132 stripped
 GameObject:
@@ -323,7 +345,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2301770338086158132}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 120
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -523,7 +545,7 @@ Rigidbody:
   m_GameObject: {fileID: 7203575052374990837}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -541,7 +563,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &1798907537607693365
+--- !u!135 &5597027053589609090
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -560,7 +582,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7985248527588007246 stripped
 GameObject:
@@ -630,7 +652,7 @@ Rigidbody:
   m_GameObject: {fileID: 8229717946417143441}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -648,7 +670,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &8979231503138270596
+--- !u!135 &1205840015778452269
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -667,5 +689,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_Center: {x: 0, y: 0, z: 0}

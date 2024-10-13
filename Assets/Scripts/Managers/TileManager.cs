@@ -15,7 +15,7 @@ namespace Tiles
         
         private List<Tile> _tiles = new List<Tile>();
         
-        private int _currentTileIndex;
+        private int _currentTileIndex = 1;
         
         private void Start()
         {

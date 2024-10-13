@@ -1,15 +1,18 @@
+using System;
 using InputControls;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Car
 {
     public class CarController : MonoBehaviour
     {
+        public event Action OnGas;
+        public event Action OnBrake;
+        
         [Header("Speed Settings")] 
         [SerializeField] private AnimationCurve accelerationCurve;
         [SerializeField] private AnimationCurve torqueCurve;
-        [SerializeField] private AnimationCurve breakCurve;
+        [SerializeField] private AnimationCurve brakeCurve;
         [SerializeField] private float topSpeed = 30;
         [SerializeField] private float torqueMultiplier = 50;
         [SerializeField] private float maxTorque = 100;
@@ -36,6 +39,8 @@ namespace Car
         private Vector3 _velocity;
         private float _currentRotation;
 
+        private float brakeTimer;
+
         public float SpeedProgress => _currentSpeed / topSpeed;
         public bool IsDrifting { get; private set; }
 
@@ -56,13 +61,17 @@ namespace Car
 
         private void HandleSpeed()
         {
-            float input = InputManager.Instance.IsTapping ? 1 : 0;
-            _currentSpeed += accelerationCurve.Evaluate(SpeedProgress) * input * Time.deltaTime * _currentTorque;
-            _currentSpeed = Mathf.Clamp(_currentSpeed, 0, topSpeed);
-
-            if (input != 0) return;
-            _currentSpeed -= breakCurve.Evaluate(SpeedProgress) * breakForce * Time.deltaTime;
-            _currentSpeed = Mathf.Clamp(_currentSpeed, 0, topSpeed);
+            if (InputManager.Instance.IsTapping)
+            {
+                _currentSpeed += accelerationCurve.Evaluate(SpeedProgress) * Time.deltaTime * _currentTorque;
+                _currentSpeed = Mathf.Clamp(_currentSpeed, 0, topSpeed);
+                brakeTimer = 0;
+                OnGas?.Invoke();
+            }
+            else
+            {
+                Brake();
+            }
         }
 
         private void MoveCar()
@@ -82,6 +91,16 @@ namespace Car
             desiredPosition.x = Mathf.Clamp(desiredPosition.x, bounds.x, bounds.y);
 
             transform.position = desiredPosition;
+        }
+
+        private void Brake()
+        {
+            brakeTimer += Time.deltaTime;
+            brakeTimer = Mathf.Clamp(brakeTimer, 0, 1);
+            
+            _currentSpeed -= brakeCurve.Evaluate(brakeTimer) * breakForce;
+            _currentSpeed = Mathf.Clamp(_currentSpeed, 0, topSpeed);
+            OnBrake?.Invoke();
         }
 
         private void CalculateTorque()
@@ -134,11 +153,17 @@ namespace Car
             rearWheels.Rotate(Vector3.right * spin);
         }
 
+        private void OnDisable()
+        {
+            IsDrifting = false;
+        }
+
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
             Gizmos.DrawLine(new Vector3(bounds.x, 1, 0), new Vector3(bounds.x, 1, 10));
             Gizmos.DrawLine(new Vector3(bounds.y, 1, 0), new Vector3(bounds.y, 1, 10));
         }
+        
     }
 }
