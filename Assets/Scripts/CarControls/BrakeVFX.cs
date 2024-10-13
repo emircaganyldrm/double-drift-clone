@@ -9,9 +9,6 @@ namespace Car
         [SerializeField] private Renderer lightsRenderer;
         [SerializeField] private Color defaultColor;
         [SerializeField] private Color brakeColor;
-
-        [ColorUsage(true, true)]
-        [SerializeField] private Color brakeEmissionColor;
         
         private CarController _carController;
         
@@ -20,7 +17,6 @@ namespace Car
         private bool isBraking;
         
         private const string MainColor = "_Color";
-        private const string EmissionColor = "_EmissionColor";
         
         private void Awake()
         {
@@ -62,7 +58,6 @@ namespace Car
             
             lightsRenderer.GetPropertyBlock(_materialPropertyBlock);
             _materialPropertyBlock.SetColor(MainColor, brakeColor);
-            _materialPropertyBlock.SetColor(EmissionColor, brakeEmissionColor);
             lightsRenderer.SetPropertyBlock(_materialPropertyBlock);
         }
         
@@ -75,7 +70,6 @@ namespace Car
             
             lightsRenderer.GetPropertyBlock(_materialPropertyBlock);
             _materialPropertyBlock.SetColor(MainColor, defaultColor);
-            _materialPropertyBlock.SetColor(EmissionColor, Color.black);
             lightsRenderer.SetPropertyBlock(_materialPropertyBlock);
         }
     }

@@ -12,8 +12,6 @@ namespace Tiles
         [SerializeField] private float[] lanePositions;
 
         [SerializeField] private float roadLength = 120;
-        [SerializeField] private int carPerLane = 3;
-        
 
         private List<TrafficCarController> _cars = new();
 
@@ -26,16 +24,13 @@ namespace Tiles
         {
             var pool = TrafficCarPool.Instance;
 
-            for (int i = 0; i < carPerLane; i++)
+            foreach (float lanePosition in lanePositions)
             {
-                foreach (float lanePosition in lanePositions)
-                {
-                    TrafficCarController car = pool.Get();
-                    car.transform.position =
-                        new Vector3(lanePosition, 0, transform.position.z + Random.Range(0, roadLength));
-                    _cars.Add(car);
-                    car.transform.SetParent(null);
-                }
+                TrafficCarController car = pool.Get();
+                car.transform.position =
+                    new Vector3(lanePosition, 0, transform.position.z + Random.Range(0, roadLength));
+                _cars.Add(car);
+                car.transform.SetParent(null);
             }
         }
 
