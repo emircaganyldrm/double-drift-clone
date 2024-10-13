@@ -1,11 +1,10 @@
+using Managers;
 using UnityEngine;
 
 namespace CameraControls
 {
     public class FollowCamera : MonoBehaviour
     {
-        [SerializeField] private Transform target;
-    
         [SerializeField] private float speed = 5f;
         [SerializeField] private Vector3 offset;
 
@@ -16,7 +15,7 @@ namespace CameraControls
 
         private void MoveCamera()
         {
-            transform.position = Vector3.Lerp(transform.position, target.position + offset, speed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, GameFollowManager.Instance.FollowTarget.position + offset, speed * Time.deltaTime);
         }
 
         private void OnValidate()

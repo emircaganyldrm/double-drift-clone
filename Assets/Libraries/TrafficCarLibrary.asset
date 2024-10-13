@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4630e449af5d48629084d9e0eacc56e7, type: 3}
+  m_Name: TrafficCarLibrary
+  m_EditorClassIdentifier: 
+  trafficCarControllers:
+  - {fileID: 2875707666335085341, guid: 238b101a891c86e4c84776c60b9bfb47, type: 3}
+  - {fileID: 4429149127171117286, guid: 33ead8fd59da96c47b6cc38c4f3b1756, type: 3}
+  - {fileID: 6922644884466884201, guid: 23fb4c6787815494ab98097a729e42d9, type: 3}
+  - {fileID: 2532365282077127387, guid: 69fbb9aa06a343c4782d55cdcee8d416, type: 3}
+  - {fileID: 8217830529783424417, guid: 52abf00ebe92f8b4d9b39fa6a481a47c, type: 3}
+  - {fileID: 885008604230900512, guid: f6ad0490ea155a64ea32bcc6d5e6faa9, type: 3}
+  - {fileID: 4934245323542127859, guid: b705d7d7f015cfd4c8baaa55a4d8a6d2, type: 3}
+  - {fileID: 4390252249942242946, guid: 75a79b14cbf00b54b8a2311a423d7562, type: 3}
+  - {fileID: 936379287685745930, guid: 960a158ffabb2934e9e231c99b9a71b5, type: 3}
