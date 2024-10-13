@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Managers;
 using Pools;
@@ -17,10 +18,12 @@ namespace Tiles
         
         private int _currentTileIndex = 1;
         
-        private void Start()
+        private IEnumerator Start()
         {
             tilePoolGenerator.SpawnPools();
 
+            yield return new WaitForEndOfFrame();
+            
             for (int i = 0; i < countToPlace; i++)
             {
                 SpawnTileSet();

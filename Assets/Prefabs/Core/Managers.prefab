@@ -90,9 +90,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePoolGenerator: {fileID: 3315163999283491027}
-  tileIntervalToReplace: 5
+  tileIntervalToReplace: 2
   zOffset: 120
-  countToPlace: 20
+  countToPlace: 10
 --- !u!114 &3315163999283491027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b910b44de3b3c4a928ffe4484c5616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetFrameRate: 90
 --- !u!1001 &8255854808805886422
 PrefabInstance:
   m_ObjectHideFlags: 0
