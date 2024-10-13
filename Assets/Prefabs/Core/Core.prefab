@@ -43,7 +43,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 0.97907317, b: 0.922, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -187,6 +187,14 @@ PrefabInstance:
     - target: {fileID: 3573850669873093901, guid: 071395f1bd291aa4cb052363f86d21ea, type: 3}
       propertyPath: m_Name
       value: Managers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484573003291714383, guid: 071395f1bd291aa4cb052363f86d21ea, type: 3}
+      propertyPath: countToPlace
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484573003291714383, guid: 071395f1bd291aa4cb052363f86d21ea, type: 3}
+      propertyPath: tileIntervalToReplace
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9079512285284332873, guid: 071395f1bd291aa4cb052363f86d21ea, type: 3}
       propertyPath: m_LocalPosition.x

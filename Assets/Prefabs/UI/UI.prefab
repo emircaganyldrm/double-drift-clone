@@ -531,7 +531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMesh: {fileID: 5337417573671701224}
-  updateOnce: 1
+  updateOnce: 0
 --- !u!1 &5058102268818876037
 GameObject:
   m_ObjectHideFlags: 0

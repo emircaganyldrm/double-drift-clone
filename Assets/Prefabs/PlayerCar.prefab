@@ -217,6 +217,7 @@ MonoBehaviour:
   lightsRenderer: {fileID: 8961113424219700190}
   defaultColor: {r: 0.28235295, g: 0.28235295, b: 0.28235295, a: 1}
   brakeColor: {r: 0.7529412, g: 0, b: 0, a: 1}
+  brakeEmissionColor: {r: 11.984315, g: 0, b: 0, a: 1}
 --- !u!1001 &3083195976116878687
 PrefabInstance:
   m_ObjectHideFlags: 0
